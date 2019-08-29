@@ -8,91 +8,16 @@
 </head>
 
 <body>
+    <h1>Let's play Rock, Paper, Scissors. Select a choice to play.</h1>
+    <button type="button">Rock</button>
+    <button type="button">Paper</button>
+    <button type="button">Scissors</button>
+    <div id="choices"></div>
+    <div id="results"></div>
+    <div id="score"></div>
+    <div id="end"></div>
 
-    <script>
-        function computerPlay() {
-            let rpsList = ["Rock", "Paper", "Scissors"];
-            let choice = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-            return rpsList[choice];
-        }
-
-        function round(playerChoice, cpuChoice) {
-            console.log("You selected " + playerChoice);
-            console.log("The computer selected " + cpuChoice);
-
-            if (playerChoice == cpuChoice) {
-                console.log("It's a tie. " + playerChoice + " ties against " + cpuChoice + ".\n\n");
-                return;
-            }
-
-            switch (playerChoice) {
-                case "Rock":
-                    if (cpuChoice == "Paper") {
-                        console.log("You lose. Rock loses to Paper.\n\n");
-                        cpuScore++;
-                    } else { 
-                        console.log("You win! Rock beats Scissors!\n\n");
-                        playerScore++;
-                    }
-                    break;
-                case "Paper" : 
-                    if (cpuChoice == "Scissors") {
-                        console.log("You lose. Paper loses to Scissors.\n\n");
-                        cpuScore++;
-                    } else {
-                        console.log("You win! Paper beats Rock!\n\n");
-                        playerScore++;
-                    }
-                    break;
-                case "Scissors" : 
-                    if (cpuChoice == "Rock") {
-                        console.log("You lose. Scissors loses to Rock.\n\n");
-                        cpuScore++;
-                    } else {
-                        console.log("You win! Scissors beats Paper!\n\n");
-                        playerScore++;
-                    }
-                    break;
-                default: 
-                    break;
-            }
-
-            return;
-        }
-
-        function game() {
-            let choice;
-            let count = 1;
-            choice = prompt("Let's play Rock, Paper, Scissors. For round 1 of 5, please enter a choice: ").toLowerCase();
-
-            while (count < 5){
-                while (choice != "rock" && choice != "paper" && choice != "scissors")
-                    choice = prompt("Invalid input. Please enter an option: ").toLowerCase();
-
-                choice = choice.charAt(0).toUpperCase() + choice.slice(1);
-                round(choice, computerPlay());
-                count++;
-                choice = prompt("Round " + count + " of 5. Please enter a choice: ").toLowerCase();
-            }
-
-            console.log("The final score is: Player - " + playerScore + "   CPU - " + cpuScore + "\n\n")
-            
-            if (playerScore > cpuScore)
-                console.log("You win!\n\n");
-            else if (playerScore < cpuScore)
-                console.log("You lose.\n\n");
-            else
-                console.log("It's a tie.\n\n");
-            
-            console.log("Thanks for playing!");
-        }
-
-        let playerScore = 0;
-        let cpuScore = 0;
-
-        game();
-    </script>
-
+    <script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>
